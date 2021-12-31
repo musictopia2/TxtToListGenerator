@@ -16,7 +16,7 @@
 	</ItemGroup>
 	<ItemGroup>
 
-		<PackageReference Include="CommonSourceGeneratorsHelpers" Version="2.0.25" />
+		<PackageReference Include="CommonSourceGeneratorsHelpers" Version="2.0.25" PrivateAssets="all" />
 
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.0.1" PrivateAssets="all" />
 		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.3" PrivateAssets="all" />
