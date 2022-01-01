@@ -11,7 +11,7 @@
 		<Description>A source generator that takes text files that has a list separated by a return carriage and gets either a list of integers or a list of strings as c# code to maximize performance</Description>
 		<PackageProjectUrl>https://github.com/musictopia2/TxtToListGenerator</PackageProjectUrl>
 	</PropertyGroup>
-	<!-- tryig to see if i can make it where if used, then others won't take a reference. -->
+	<!-- trying to see if i can make it where if used, then others won't take a reference. -->
 	<PropertyGroup>
 	  <IncludeBuildOutput>false</IncludeBuildOutput>
 	</PropertyGroup>
