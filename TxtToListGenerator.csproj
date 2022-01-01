@@ -6,10 +6,14 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 		<LangVersion>latest</LangVersion>
 		<IncludeBuildOutput>false</IncludeBuildOutput>
-		<Version>1.0.1</Version>
+		<Version>1.0.2</Version>
 		<Authors>musictopia</Authors>
 		<Description>A source generator that takes text files that has a list separated by a return carriage and gets either a list of integers or a list of strings as c# code to maximize performance</Description>
 		<PackageProjectUrl>https://github.com/musictopia2/TxtToListGenerator</PackageProjectUrl>
+	</PropertyGroup>
+	<!-- tryig to see if i can make it where if used, then others won't take a reference. -->
+	<PropertyGroup>
+	  <IncludeBuildOutput>false</IncludeBuildOutput>
 	</PropertyGroup>
 	<ItemGroup>
 		<None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
@@ -17,7 +21,7 @@
 	<ItemGroup>
 
 		<PackageReference Include="CommonSourceGeneratorsHelpers" Version="2.0.25" PrivateAssets="all" />
-
+		
 		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="4.0.1" PrivateAssets="all" />
 		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.3.3" PrivateAssets="all" />
 	</ItemGroup>
