@@ -20,7 +20,7 @@ public class MySourceGenerator : IIncrementalGenerator
         {
             string name = Path.GetFileNameWithoutExtension(file.Path);
             string details = file.GetText()!.ToString();
-            BasicList<string> list = details.Split(Environment.NewLine);
+            BasicList<string> list = details.Split(Constants.VBCrLf);
             output.Add(new(name, list));
         }
         return output;
