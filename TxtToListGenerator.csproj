@@ -1,34 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
-
-	<PropertyGroup>
-		<TargetFramework>netstandard2.0</TargetFramework>
-		<Nullable>enable</Nullable>
-		<ImplicitUsings>enable</ImplicitUsings>
-		<LangVersion>latest</LangVersion>
-		<IncludeBuildOutput>false</IncludeBuildOutput>
-		<Version>1.0.2</Version>
-		<Authors>musictopia</Authors>
-		<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
-		<Description>A source generator that takes text files that has a list separated by a return carriage and gets either a list of integers or a list of strings as c# code to maximize performance</Description>
-		<PackageProjectUrl>https://github.com/musictopia2/TxtToListGenerator</PackageProjectUrl>
-		<RunPostBuildAppCondition Condition="'$(Configuration)' == 'Release'">true</RunPostBuildAppCondition>
-		<FeedType>Public</FeedType>
-	</PropertyGroup>
-	<!-- trying to see if i can make it where if used, then others won't take a reference. -->
-	<PropertyGroup>
-	  <IncludeBuildOutput>false</IncludeBuildOutput>
-	</PropertyGroup>
-	<ItemGroup>
-		<None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
-	</ItemGroup>
-	<ItemGroup>
-
-		<PackageReference Include="CommonSourceGeneratorsHelpers" Version="2.0.87" PrivateAssets="all" />
-		
-		<PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="5.0.0" PrivateAssets="all" />
-		<PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0" PrivateAssets="all" />
-	</ItemGroup>
-	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="C:\VS\OneNet\Apps\CommandLines\PostBuildPackageHandler\bin\Release\net9.0\PostBuildPackageHandler.exe $(ProjectName) $(ProjectDir) $(ProjectFileName) $(TargetDir)" Condition="'$(Configuration)' == 'Release' and '$(RunPostBuildAppCondition)' == 'true'" />
-	</Target>
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <LangVersion>latest</LangVersion>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+    <Version>1.0.2</Version>
+    <Authors>musictopia</Authors>
+    <EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
+    <Description>A source generator that takes text files that has a list separated by a return carriage and gets either a list of integers or a list of strings as c# code to maximize performance</Description>
+    <PackageProjectUrl>https://github.com/musictopia2/TxtToListGenerator</PackageProjectUrl>
+    <FeedType>Public</FeedType>
+    <RunPostBuildAppCondition Condition="'$(Configuration)' == 'Release'">true</RunPostBuildAppCondition>
+  </PropertyGroup>
+  <!-- trying to see if i can make it where if used, then others won't take a reference. -->
+  <PropertyGroup>
+    <IncludeBuildOutput>false</IncludeBuildOutput>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Musictopia2.CommonSourceGeneratorsHelpers" Version="1.0.1" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CodeAnalysis.CSharp" Version="5.0.0" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.11.0" PrivateAssets="all" />
+  </ItemGroup>
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="C:\VS\Apps\CommandLines\PostBuildPackageHandler\bin\Release\net10.0\PostBuildPackageHandler.exe $(ProjectName) $(ProjectDir) $(ProjectFileName) $(TargetDir)" Condition="'$(Configuration)' == 'Release' and '$(RunPostBuildAppCondition)' == 'true'" />
+  </Target>
 </Project>
